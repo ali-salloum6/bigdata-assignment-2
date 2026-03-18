@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "ecommerce_graph",
+  "properties": {
+    "User": {
+      "type": "object",
+      "description": "User node (656,882). Index on user_id.",
+      "properties": {
+        "user_id": { "type": "integer", "description": "Indexed" },
+        "client_id": { "type": "integer" },
+        "first_purchase_date": { "type": "string", "format": "date" }
+      },
+      "required": ["user_id"]
+    },
+    "Product": {
+      "type": "object",
+      "description": "Product node (89,206). Index on product_id.",
+      "properties": {
+        "product_id": { "type": "integer", "description": "Indexed" },
+        "brand": { "type": "string" },
+        "category_id": { "type": "integer" }
+      },
+      "required": ["product_id"]
+    },
+    "Campaign": {
+      "type": "object",
+      "description": "Campaign node (1,907). Index on (campaign_id, campaign_type).",
+      "properties": {
+        "campaign_id": { "type": "integer" },
+        "campaign_type": { "type": "string" },
+        "channel": { "type": "string" },
+        "topic": { "type": "string" },
+        "total_count": { "type": "integer" },
+        "subject_length": { "type": "number" }
+      },
+      "required": ["campaign_id", "campaign_type"]
+    },
+    "Message": {
+      "type": "object",
+      "description": "Message node (3,002,653).",
+      "properties": {
+        "message_id": { "type": "integer" },
+        "channel": { "type": "string" },
+        "is_opened": { "type": "boolean" },
+        "is_clicked": { "type": "boolean" },
+        "is_purchased": { "type": "boolean" },
+        "sent_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Category": {
+      "type": "object",
+      "description": "Category node (135). Index on category_code.",
+      "properties": {
+        "category_code": { "type": "string", "description": "e.g. electronics.smartphone" }
+      },
+      "required": ["category_code"]
+    },
+    "PERFORMED": {
+      "type": "object",
+      "description": "Edge (User)-[:PERFORMED]->(Product). 1,266,154 edges.",
+      "properties": {
+        "event_type": { "type": "string", "description": "view | cart | purchase" },
+        "event_time": { "type": "string", "format": "date-time" },
+        "price": { "type": "number" },
+        "user_session": { "type": "string" }
+      }
+    },
+    "FRIENDS_WITH": {
+      "type": "object",
+      "description": "Edge (User)-[:FRIENDS_WITH]->(User). 1,974,233 edges.",
+      "properties": {}
+    },
+    "RECEIVED": {
+      "type": "object",
+      "description": "Edge (User)-[:RECEIVED]->(Message). 2,998,612 edges.",
+      "properties": {}
+    },
+    "BELONGS_TO": {
+      "type": "object",
+      "description": "Edge (Message)-[:BELONGS_TO]->(Campaign). 2,998,612 edges.",
+      "properties": {}
+    },
+    "IN_CATEGORY": {
+      "type": "object",
+      "description": "Edge (Product)-[:IN_CATEGORY]->(Category). 52,900 edges.",
+      "properties": {}
+    }
+  }
+}

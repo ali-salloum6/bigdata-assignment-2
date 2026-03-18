@@ -1,0 +1,6 @@
+psycopg2-binary
+pymongo
+neo4j
+pandas
+numpy
+matplotlib

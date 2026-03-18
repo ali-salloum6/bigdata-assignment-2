@@ -1,0 +1,351 @@
+{
+  "q1_psql": {
+    "rows": 5,
+    "time": 0.8591040000028443,
+    "sample": [
+      {
+        "campaign_type": "transactional",
+        "channel": "email",
+        "total_messages": 239177,
+        "purchases": 1531,
+        "purchase_rate_pct": "0.64"
+      },
+      {
+        "campaign_type": "trigger",
+        "channel": "multichannel",
+        "total_messages": 644268,
+        "purchases": 1413,
+        "purchase_rate_pct": "0.22"
+      },
+      {
+        "campaign_type": "bulk",
+        "channel": "email",
+        "total_messages": 849916,
+        "purchases": 769,
+        "purchase_rate_pct": "0.09"
+      },
+      {
+        "campaign_type": "bulk",
+        "channel": "mobile_push",
+        "total_messages": 1269174,
+        "purchases": 0,
+        "purchase_rate_pct": "0.00"
+      },
+      {
+        "campaign_type": "transactional",
+        "channel": "mobile_push",
+        "total_messages": 118,
+        "purchases": 0,
+        "purchase_rate_pct": "0.00"
+      }
+    ]
+  },
+  "q1_mongo": {
+    "rows": 6,
+    "time": 7.431113708997145,
+    "sample": [
+      {
+        "_id": "{'message_type': 'transactional', 'channel': 'email'}",
+        "total_messages": 239177,
+        "purchases": 1531,
+        "purchase_rate_pct": 0.64
+      },
+      {
+        "_id": "{'message_type': 'trigger', 'channel': 'email'}",
+        "total_messages": 644187,
+        "purchases": 1413,
+        "purchase_rate_pct": 0.22
+      },
+      {
+        "_id": "{'message_type': 'bulk', 'channel': 'email'}",
+        "total_messages": 849916,
+        "purchases": 769,
+        "purchase_rate_pct": 0.09
+      },
+      {
+        "_id": "{'message_type': 'trigger', 'channel': 'web_push'}",
+        "total_messages": 81,
+        "purchases": 0,
+        "purchase_rate_pct": 0.0
+      },
+      {
+        "_id": "{'message_type': 'bulk', 'channel': 'mobile_push'}",
+        "total_messages": 1269174,
+        "purchases": 0,
+        "purchase_rate_pct": 0.0
+      }
+    ]
+  },
+  "q1_memgraph": {
+    "rows": 5,
+    "time": 6.550261208991287,
+    "sample": [
+      {
+        "campaign_type": "transactional",
+        "channel": "email",
+        "total_messages": 239023,
+        "purchases": 1531,
+        "purchase_rate_pct": 0.64
+      },
+      {
+        "campaign_type": "trigger",
+        "channel": "multichannel",
+        "total_messages": 643715,
+        "purchases": 1413,
+        "purchase_rate_pct": 0.21
+      },
+      {
+        "campaign_type": "bulk",
+        "channel": "email",
+        "total_messages": 848789,
+        "purchases": 768,
+        "purchase_rate_pct": 0.09
+      },
+      {
+        "campaign_type": "transactional",
+        "channel": "mobile_push",
+        "total_messages": 118,
+        "purchases": 0,
+        "purchase_rate_pct": 0.0
+      },
+      {
+        "campaign_type": "bulk",
+        "channel": "mobile_push",
+        "total_messages": 1266967,
+        "purchases": 0,
+        "purchase_rate_pct": 0.0
+      }
+    ]
+  },
+  "q2_psql": {
+    "rows": 20,
+    "time": 1.632402582996292,
+    "sample": [
+      {
+        "product_id": 1004856,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 18691,
+        "unique_users": 4665
+      },
+      {
+        "product_id": 1004767,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 14733,
+        "unique_users": 4048
+      },
+      {
+        "product_id": 1005115,
+        "category_code": "electronics.smartphone",
+        "brand": "apple",
+        "total_score": 10823,
+        "unique_users": 3228
+      },
+      {
+        "product_id": 1004833,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 8708,
+        "unique_users": 2386
+      },
+      {
+        "product_id": 1004870,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 7385,
+        "unique_users": 1904
+      }
+    ]
+  },
+  "q2_mongo": {
+    "rows": 20,
+    "time": 2.898734375005006,
+    "sample": [
+      {
+        "total_score": 18691,
+        "product_id": 1004856,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "unique_users": 4665
+      },
+      {
+        "total_score": 14733,
+        "product_id": 1004767,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "unique_users": 4048
+      },
+      {
+        "total_score": 10823,
+        "product_id": 1005115,
+        "category_code": "electronics.smartphone",
+        "brand": "apple",
+        "unique_users": 3228
+      },
+      {
+        "total_score": 8708,
+        "product_id": 1004833,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "unique_users": 2386
+      },
+      {
+        "total_score": 7385,
+        "product_id": 1004870,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "unique_users": 1904
+      }
+    ]
+  },
+  "q2_memgraph": {
+    "rows": 20,
+    "time": 2.3659833749989048,
+    "sample": [
+      {
+        "product_id": 1004856,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 24793,
+        "unique_users": 5870
+      },
+      {
+        "product_id": 1004767,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 21018,
+        "unique_users": 5470
+      },
+      {
+        "product_id": 1005115,
+        "category_code": "electronics.smartphone",
+        "brand": "apple",
+        "total_score": 15896,
+        "unique_users": 4217
+      },
+      {
+        "product_id": 1004870,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 10311,
+        "unique_users": 2468
+      },
+      {
+        "product_id": 1004833,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "total_score": 10021,
+        "unique_users": 2684
+      }
+    ]
+  },
+  "q3_psql": {
+    "rows": 20,
+    "time": 0.7669371669908287,
+    "sample": [
+      {
+        "product_id": 1000894,
+        "category_code": "electronics.smartphone",
+        "brand": "texet",
+        "price": "73.31"
+      },
+      {
+        "product_id": 1000978,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "price": "300.91"
+      },
+      {
+        "product_id": 1000978,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "price": "301.14"
+      },
+      {
+        "product_id": 1000978,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "price": "333.49"
+      },
+      {
+        "product_id": 1000978,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "price": "359.47"
+      }
+    ]
+  },
+  "q3_mongo": {
+    "rows": 20,
+    "time": 17.472010999990744,
+    "sample": [
+      {
+        "product_id": 21400135,
+        "category_code": "electronics.clocks",
+        "brand": "casio",
+        "price": 165.26,
+        "score": 0.75
+      },
+      {
+        "product_id": 1004210,
+        "category_code": "electronics.smartphone",
+        "brand": "samsung",
+        "price": 92.67,
+        "score": 0.75
+      },
+      {
+        "product_id": 1005167,
+        "category_code": "electronics.smartphone",
+        "brand": "xiaomi",
+        "price": 300.65,
+        "score": 0.75
+      },
+      {
+        "product_id": 1201465,
+        "category_code": "electronics.tablet",
+        "brand": "samsung",
+        "price": 234.11,
+        "score": 0.75
+      },
+      {
+        "product_id": 1003869,
+        "category_code": "electronics.smartphone",
+        "brand": "xiaomi",
+        "price": 167.02,
+        "score": 0.75
+      }
+    ]
+  },
+  "q3_memgraph": {
+    "rows": 20,
+    "time": 0.5560051659995224,
+    "sample": [
+      {
+        "product_id": 1000894,
+        "category_code": "electronics.smartphone",
+        "brand": "texet"
+      },
+      {
+        "product_id": 1000978,
+        "category_code": "electronics.smartphone",
+        "brand": ""
+      },
+      {
+        "product_id": 1001588,
+        "category_code": "electronics.smartphone",
+        "brand": "meizu"
+      },
+      {
+        "product_id": 1001605,
+        "category_code": "electronics.smartphone",
+        "brand": "apple"
+      },
+      {
+        "product_id": 1001606,
+        "category_code": "electronics.smartphone",
+        "brand": "apple"
+      }
+    ]
+  }
+}

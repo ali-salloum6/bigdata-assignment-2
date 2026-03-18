@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "ecommerce",
+  "properties": {
+    "events": {
+      "type": "object",
+      "description": "User behavior events. One doc per event. Text index on category_code.",
+      "properties": {
+        "event_time": { "type": "string", "format": "date-time" },
+        "event_type": { "type": "string", "description": "view | cart | purchase" },
+        "product_id": { "type": "integer" },
+        "category_id": { "type": "integer" },
+        "category_code": { "type": "string", "description": "Text-indexed for full-text search" },
+        "brand": { "type": "string" },
+        "price": { "type": "number" },
+        "user_id": { "type": "integer", "description": "Indexed" },
+        "user_session": { "type": "string" }
+      },
+      "required": ["event_time", "event_type", "product_id", "user_id"]
+    },
+    "campaigns": {
+      "type": "object",
+      "description": "Marketing campaigns. One doc per campaign. Index on (id, campaign_type).",
+      "properties": {
+        "id": { "type": "integer" },
+        "campaign_type": { "type": "string", "description": "bulk | trigger | transactional" },
+        "channel": { "type": "string" },
+        "topic": { "type": "string" },
+        "started_at": { "type": "string", "format": "date-time" },
+        "finished_at": { "type": "string", "format": "date-time" },
+        "total_count": { "type": "integer" },
+        "ab_test": { "type": "boolean" },
+        "warmup_mode": { "type": "boolean" },
+        "hour_limit": { "type": "integer" },
+        "subject_length": { "type": "number" },
+        "subject_with_personalization": { "type": "boolean" },
+        "subject_with_deadline": { "type": "boolean" },
+        "subject_with_emoji": { "type": "boolean" },
+        "subject_with_bonuses": { "type": "boolean" },
+        "subject_with_discount": { "type": "boolean" },
+        "subject_with_saleout": { "type": "boolean" },
+        "is_test": { "type": "boolean" },
+        "position": { "type": "integer" }
+      },
+      "required": ["id", "campaign_type", "channel"]
+    },
+    "messages": {
+      "type": "object",
+      "description": "Campaign messages. Indexes on client_id, (campaign_id, message_type), is_purchased.",
+      "properties": {
+        "id": { "type": "integer" },
+        "message_id": { "type": "string" },
+        "campaign_id": { "type": "integer", "description": "Ref -> campaigns.id" },
+        "message_type": { "type": "string", "description": "Ref -> campaigns.campaign_type" },
+        "client_id": { "type": "integer", "description": "Indexed" },
+        "channel": { "type": "string" },
+        "category": { "type": "string" },
+        "platform": { "type": "string" },
+        "email_provider": { "type": "string" },
+        "stream": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "sent_at": { "type": "string", "format": "date-time" },
+        "is_opened": { "type": "boolean" },
+        "opened_first_time_at": { "type": "string", "format": "date-time" },
+        "opened_last_time_at": { "type": "string", "format": "date-time" },
+        "is_clicked": { "type": "boolean" },
+        "clicked_first_time_at": { "type": "string", "format": "date-time" },
+        "clicked_last_time_at": { "type": "string", "format": "date-time" },
+        "is_unsubscribed": { "type": "boolean" },
+        "unsubscribed_at": { "type": "string", "format": "date-time" },
+        "is_hard_bounced": { "type": "boolean" },
+        "hard_bounced_at": { "type": "string", "format": "date-time" },
+        "is_soft_bounced": { "type": "boolean" },
+        "soft_bounced_at": { "type": "string", "format": "date-time" },
+        "is_complained": { "type": "boolean" },
+        "complained_at": { "type": "string", "format": "date-time" },
+        "is_blocked": { "type": "boolean" },
+        "blocked_at": { "type": "string", "format": "date-time" },
+        "is_purchased": { "type": "boolean", "description": "Indexed" },
+        "purchased_at": { "type": "string", "format": "date-time" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "updated_at": { "type": "string", "format": "date-time" },
+        "user_device_id": { "type": "integer" },
+        "user_id": { "type": "integer" }
+      }
+    },
+    "client_first_purchase": {
+      "type": "object",
+      "description": "First purchase date per client. Indexes on client_id, user_id.",
+      "properties": {
+        "client_id": { "type": "integer", "description": "Indexed" },
+        "first_purchase_date": { "type": "string", "format": "date" },
+        "user_id": { "type": "integer", "description": "Indexed" },
+        "user_device_id": { "type": "integer" }
+      },
+      "required": ["client_id"]
+    },
+    "friends": {
+      "type": "object",
+      "description": "Mutual friendships. Indexes on friend1, friend2.",
+      "properties": {
+        "friend1": { "type": "integer", "description": "User ID 1, indexed" },
+        "friend2": { "type": "integer", "description": "User ID 2, indexed" }
+      },
+      "required": ["friend1", "friend2"]
+    }
+  }
+}

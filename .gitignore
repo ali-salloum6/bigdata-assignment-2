@@ -1,0 +1,9 @@
+data/
+.venv/
+__pycache__/
+*.pyc
+f29/
+f29.zip
+*.html
+*_files/
+.DS_Store
